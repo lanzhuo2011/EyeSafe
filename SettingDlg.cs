@@ -49,21 +49,29 @@ namespace EyeSafe
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (sleepMins != Convert.ToInt32(tbSleepTime.Text.Trim()))
+            try
             {
-                sleepMins = Convert.ToInt32(tbSleepTime.Text.Trim());
-                isModified = true;
+                if (sleepMins != Convert.ToInt32(tbSleepTime.Text.Trim()))
+                {
+                    sleepMins = Convert.ToInt32(tbSleepTime.Text.Trim());
+                    isModified = true;
+                }
+                if (spanHours != Convert.ToInt32(tbSpanHours.Text.Trim()))
+                {
+                    spanHours = Convert.ToInt32(tbSpanHours.Text.Trim());
+                    isModified = true;
+                }
+                if (spanMins != Convert.ToInt32(tbSpanMins.Text.Trim()))
+                {
+                    spanMins = Convert.ToInt32(tbSpanMins.Text.Trim());
+                    isModified = true;
+                }
             }
-            if (spanHours != Convert.ToInt32(tbSpanHours.Text.Trim()))
+            catch (Exception ex)
             {
-                spanHours = Convert.ToInt32(tbSpanHours.Text.Trim());
-                isModified = true;
+                MessageBox.Show("输入的值错误"); 
             }
-            if (spanMins != Convert.ToInt32(tbSpanMins.Text.Trim()))
-            {
-                spanMins = Convert.ToInt32(tbSpanMins.Text.Trim());
-                isModified = true;
-            }
+            
             this.Close();
         }
 
